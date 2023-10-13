@@ -9,20 +9,11 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "solus",
-	Short: "An AI-assisted project generator.",
-	Long:  `Solus is an AI-assisted project generator by CSX Labs.`,
-	PersistentPreRun: func(cmd *cobra.Command, args []string) {
-		// TODO: Fix global logging configuration to work with Cobra.
-	},
-	Run: func(cmd *cobra.Command, args []string) {
-		_, err := tui.Run()
-		if err != nil {
-			fmt.Println(err)
-		}
-	},
-}
+	Use:   "vcheck",
+	Short: "A version checker.",
+	Long:  `A utility made to check versions of software and track software versions effectively.`,
 
+}
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
