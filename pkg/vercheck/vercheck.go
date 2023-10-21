@@ -1,10 +1,10 @@
 package vercheck
 
 import (
-	"fmt"
+	
 )
 
-func GithubCall() {
-	fmt.Println("Github API call placeholder")
+func GithubCall() string {
+	return "API call placeholder"
 }
 

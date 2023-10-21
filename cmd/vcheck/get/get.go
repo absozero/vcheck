@@ -8,7 +8,7 @@ import (
 	"github.com/absozero/vcheck/cmd/vcheck"
 	"github.com/absozero/vcheck/pkg/vercheck"
 	"github.com/spf13/cobra"
-	
+	"fmt"
 )
 
 // helpCmd represents the help command
@@ -17,7 +17,7 @@ var VersionCmd = &cobra.Command{
 	Short: "Returns the latest version of a given project on github",
 	Long: `Shows the current version of vcheck in the program.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		vercheck.GithubCall()
+		fmt.Println(vercheck.GithubCall())
 	},
 }
 
