@@ -1,12 +1,12 @@
 /*
 Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
 */
 package version
 
 import (
+	
 	"github.com/absozero/vcheck/cmd/vcheck"
-	"github.com/absozero/vcheck/pkg/vercheck"
+	"github.com/absozero/vcheck/pkg/ghcheck"
 	"github.com/spf13/cobra"
 	"fmt"
 )
@@ -15,9 +15,9 @@ import (
 var VersionCmd = &cobra.Command{
 	Use:   "get",
 	Short: "Returns the latest version of a given project on github",
-	Long: `Shows the current version of vcheck in the program.`,
+	Long:  `Shows the current version of vcheck in the program.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(vercheck.GithubCall())
+		fmt.Println(ghcheck.GithubCall("/repos/absozero/galact/releases"))
 	},
 }
 
