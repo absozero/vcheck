@@ -13,11 +13,13 @@ import (
 
 // helpCmd represents the help command
 var VersionCmd = &cobra.Command{
-	Use:   "get",
+	Use:   "get-latest",
+	Aliases: []string{"get"},
 	Short: "Returns the latest version of a given project on github",
 	Long:  `Shows the current version of vcheck in the program.`,
+	Args:    cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(ghcheck.GithubCall("/repos/absozero/galact/releases"))
+		fmt.Println(ghcheck.GithubCall(args[0]))
 	},
 }
 

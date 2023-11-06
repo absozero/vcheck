@@ -83,9 +83,8 @@ type GithubRelease []struct {
 	Body       string `json:"body"`
 }
 
-func GithubCall(endpoint string) any {
-	log.Println("https://api.github.com" + endpoint + "/releases")
-	res, err := http.Get("https://api.github.com/repos/absozero/galact/releases")
+func GithubCall(endpoint string) string {
+	res, err := http.Get("https://api.github.com/repos/" + endpoint + "/releases")
 
 	if err != nil {
 		fmt.Println(err)
@@ -97,7 +96,10 @@ func GithubCall(endpoint string) any {
 		log.Fatal(err)
 	}
 
+	//Unmarshals the request data from the API request into a struct to hold data
 	var response GithubRelease
 	json.Unmarshal(body, &response)
-	return response
+	resp := response[0].HTMLURL
+	// Returns the latest version of the app
+	return resp[len(resp) - 5:]
 }
